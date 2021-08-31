@@ -26,6 +26,8 @@ string dec_to_bin(string input)
     return s_output;
 }
 
+
+//Base 10 to Base 16
 string dec_to_hex(string input)
 {
     string temp="123";
@@ -79,6 +81,7 @@ string bin_to_dec(string input)
 string bin_to_hex(string input)
 {
     string temp="123";
+    int string_length = input.length();
     return temp;
 }
 
@@ -87,7 +90,56 @@ string bin_to_Oct(string input)
 {
     string temp="123";
     int string_length = input.length();
-
+    string fullinput = input;
+    int whole = string_length % 3;
+    // checks if binary is divisable by 3 for grouping method
+    while(whole != 0)
+    {
+        fullinput = "0" + fullinput;
+        whole = whole -1;
+    }
+    int item_value = 0;
+    string group[input.length()+1];
+    string grouped = "";
+    int curr_at = 0;
+    // should group all binary from the input
+    for(int i=0;i<input.length()+1;i++)
+    {
+        if (count == 2)
+        {
+            group[curr_at] = grouped;
+            curr_at++;
+            count = 0;
+            grouped = "";
+        }
+        else
+        {
+            count++;
+            grouped = grouped + input.at(i);
+        }
+    }
+    temp = "";
+    //should change all binary to oct
+    for(int used=0;used<curr_at;used++)
+    {
+        string binary_item = group[used];
+        int binary_length = binary_item.length();
+        int item_amount=0;
+        if (binary_item.at(0) == "1")
+        {
+            item_amount = item_amount + 4;
+        }
+        if (binary_item.at(1) == "1")
+        {
+            item_amount = item_amount + 2;
+        }
+        if (binary_item.at(2) == "1")
+        {
+            item_amount = item_amount + 1;
+        }
+        temp = temp + to_string(item_amount);
+        item_amount = 0;
+    }
     return temp;
 }
 
@@ -119,10 +171,62 @@ string hex_to_dec(string input)
 }
 
 //Base 16 to Base 2
+// looks finished
 string hex_to_bin(string input)
 {
     string temp="123";
-
+    char arr[input.length()+1];
+    string output[input.length()+1];
+    strcpy(arr,input.c_str());
+    int get_arr=0;
+    for(int count = 0;count > input.length()+1; count = count+1)
+    {
+        string item="";
+        int value = arr[count] - '0';
+        if value >=8)
+        {
+            value = value -8;
+            item = item + "1";
+        }
+        else
+        {
+            item = item +"0";
+        }
+        if(value >= 4)
+        {
+            value = value-4;
+            item = item + "1";
+        }
+        else
+        {
+            item = item + "0";
+        }
+        if (value >= 2)
+        {
+            value = value-2;
+            item = item +"1";
+        }
+        else
+        {
+            item = item +"0";
+        }
+        if(value >= 1)
+        {
+            value = value -1;
+            item= item+"1";
+        }
+        else
+        {
+            item = item + "0";
+        }
+        output[count] = item;
+    }
+    
+    temp = "";
+    while (get_arr != input.length())
+    {
+        temp = temp + output[get_arr];
+    }
     return temp;
 }
 
@@ -156,10 +260,53 @@ string oct_to_dec(string input)
 }
 
 //Base 8 to Base 2
+// looks finished
 string oct_to_bin(string input)
 {
     string temp="123";
-
+    char arr[input.length()+1];
+    string output[input.length()+1];
+    strcpy(arr,input.c_str());
+    int get_arr=0;
+    for(int count = 0;count > input.length()+1; count = count+1)
+    {
+        string item="";
+        int value = arr[count] - '0';
+        if(value >= 4)
+        {
+            value = value-4;
+            item = item + "1";
+        }
+        else
+        {
+            item = item + "0";
+        }
+        if (value >= 2)
+        {
+            value = value-2;
+            item = item +"1";
+        }
+        else
+        {
+            item = item +"0";
+        }
+        if(value >= 1)
+        {
+            value = value -1;
+            item= item+"1";
+        }
+        else
+        {
+            item = item + "0";
+        }
+        output[count] = item;
+    }
+    
+    temp = "";
+    while (get_arr != input.length())
+    {
+        temp = temp + output[get_arr];
+    }
     return temp;
 }
 
