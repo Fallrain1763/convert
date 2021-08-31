@@ -180,7 +180,7 @@ string hex_to_bin(string input)
     string output[input.length()+1];
     strcpy(arr,input.c_str());
     int get_arr=0;
-    for(int count = 0;count > input.length()+1; count = count+1)
+    for(int count = 0;count < input.length()+1; count = count+1)
     {
         string item="";
         int value = arr[count] - '0';
