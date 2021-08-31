@@ -29,27 +29,27 @@ string dec_to_bin(string input)
 string dec_to_hex(string input)
 {
     string temp="123";
+    string binary = dec_to_bin(input);
+    temp = bin_to_hex(binary);
     return temp;
 }
 
 // Base 10 to Base 8
 string dec_to_oct(string input)
 {
-    string temp="123";
+    string temp="";
     int oct = 8;
     int inputted_value = stoi(input);
     int remainders[100]; 
     int used = 0;
-    while (inputted_value != 0)
+    do
     {
         int remain = inputted_value % 8;
-        cout<<"remainder: "<<remain<<endl;
-        remainders[used] = inputted_value % 8;
-        inputted_value = inputted_value / 8;
-        cout<<"value: "<<inputted_value<<endl;
+        remainders[used] = remain;
         used++;
-    }
-    temp = "";
+        inputted_value = inputted_value / 8;
+    }while (inputted_value > 0);
+    used = used-1;
     while (used > -1)
     {
         temp+= to_string(remainders[used]);
@@ -118,9 +118,11 @@ string hex_to_dec(string input)
     return s_temp;
 }
 
+//Base 16 to Base 2
 string hex_to_bin(string input)
 {
     string temp="123";
+
     return temp;
 }
 
@@ -129,9 +131,9 @@ string hex_to_oct(string input)
 {
     string temp="123";
     //changes from Base 16 to Base 10
-    string decimal = hex_to_dec(input);
+    string binary = hex_to_bin(input);
     //now that have dec change to oct
-    temp = dec_to_oct(decimal);
+    temp = bin_to_Oct(binary);
     return temp;
 }
 
@@ -153,9 +155,11 @@ string oct_to_dec(string input)
     return s_temp;
 }
 
+//Base 8 to Base 2
 string oct_to_bin(string input)
 {
     string temp="123";
+
     return temp;
 }
 
@@ -164,8 +168,8 @@ string oct_to_hex(string input)
 {
     string temp="123";
     // Base 8 to Base 10
-    string decimal = oct_to_dec(input);
+    string binary = oct_to_bin(input);
     //now that have dec change to hex
-    temp = dec_to_hex(decimal);
+    temp = bin_to_hex(binary);
     return temp;
 }
