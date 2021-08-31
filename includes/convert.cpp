@@ -99,6 +99,7 @@ string bin_to_Oct(string input)
         whole = whole -1;
     }
     int item_value = 0;
+    int count = 0;
     string group[input.length()+1];
     string grouped = "";
     int curr_at = 0;
@@ -125,15 +126,15 @@ string bin_to_Oct(string input)
         string binary_item = group[used];
         int binary_length = binary_item.length();
         int item_amount=0;
-        if (binary_item.at(0) == "1")
+        if (binary_item.at(0) == '1')
         {
             item_amount = item_amount + 4;
         }
-        if (binary_item.at(1) == "1")
+        if (binary_item.at(1) == '1')
         {
             item_amount = item_amount + 2;
         }
-        if (binary_item.at(2) == "1")
+        if (binary_item.at(2) == '1')
         {
             item_amount = item_amount + 1;
         }
@@ -183,7 +184,7 @@ string hex_to_bin(string input)
     {
         string item="";
         int value = arr[count] - '0';
-        if value >=8)
+        if (value >=8)
         {
             value = value -8;
             item = item + "1";
@@ -221,11 +222,11 @@ string hex_to_bin(string input)
         }
         output[count] = item;
     }
-    
     temp = "";
     while (get_arr != input.length())
     {
         temp = temp + output[get_arr];
+        get_arr++;
     }
     return temp;
 }
@@ -268,7 +269,7 @@ string oct_to_bin(string input)
     string output[input.length()+1];
     strcpy(arr,input.c_str());
     int get_arr=0;
-    for(int count = 0;count > input.length()+1; count = count+1)
+    for(int count = 0;count < input.length()+1; count = count+1)
     {
         string item="";
         int value = arr[count] - '0';
@@ -303,9 +304,10 @@ string oct_to_bin(string input)
     }
     
     temp = "";
-    while (get_arr != input.length())
+    while (get_arr < input.length())
     {
         temp = temp + output[get_arr];
+        get_arr++;
     }
     return temp;
 }
