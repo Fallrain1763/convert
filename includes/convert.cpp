@@ -151,6 +151,7 @@ int i_input = stoi(input);
 string bin_to_Oct(string input)
 {
     string temp="123";
+    /*
     int string_length = input.length();
     string fullinput = input;
     int whole = string_length % 3;
@@ -202,7 +203,8 @@ string bin_to_Oct(string input)
         }
         temp = temp + to_string(item_amount);
         item_amount = 0;
-    }
+    }*/
+    
     return temp;
 }
 
