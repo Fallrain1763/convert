@@ -1,9 +1,7 @@
 # Work Report
 
-## Name: 
-## <ins>Lim, Stephanie</ins>
-## <ins>Liu, Shuchen</ins>
-## <ins>West, David</ins>
+## Names: 
+## <ins>Lim, Stephanie    Liu, Shuchen    West, David</ins>
 
 <br><br>
 
