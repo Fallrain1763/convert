@@ -2,8 +2,6 @@
 
 ## Names: <ins>Lim, Stephanie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Liu, Shuchen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;West, David</ins>
 
-<br><br>
-
 ## Features:
 
 - Not Implemented:
@@ -29,6 +27,8 @@
 # Reflections:
 
 - Any thoughts you may have and would like to share.
+
+<br><br>
 
 # **output**
 
