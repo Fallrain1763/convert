@@ -30,10 +30,40 @@ string dec_to_bin(string input)
 //Base 10 to Base 16
 string dec_to_hex(string input)
 {
-    string temp="123";
-    string binary = dec_to_bin(input);
-    temp = bin_to_hex(binary);
-    return temp;
+    int i_input = stoi(input); 
+    //Declare char array 
+    char hexaDeciNum[100];
+    // counter for hexadecimal number array
+    int i = 0;
+    while (i_input != 0) 
+    {
+        // temporary variable to store remainder
+        int temp = 0;
+ 
+        // storing remainder in temp variable.
+        temp = i_input % 16;
+ 
+        // check if temp < 10
+        if (temp < 10) 
+        {
+            hexaDeciNum[i] = temp + 48;
+            i++;
+        }
+        else
+        {
+            hexaDeciNum[i] = temp + 55;
+            i++;
+        }
+ 
+        i_input = i_input / 16;
+    }
+ 
+    // printing hexadecimal number array in reverse order
+    string s_output = ""; 
+    for (int j = i - 1; j >= 0; j--)
+    s_output += (hexaDeciNum[j]);
+
+    return s_output;
 }
 
 // Base 10 to Base 8
@@ -80,9 +110,41 @@ string bin_to_dec(string input)
 
 string bin_to_hex(string input)
 {
-    string temp="123";
-    int string_length = input.length();
-    return temp;
+int i_input = stoi(input);
+    int hex=0, mul=1, chk=1, rem, i=0;
+    char hexDecNum[20];
+    while(i_input!=0)
+        {
+            rem = i_input % 10;
+            hex = hex + (rem*mul);
+            if(chk%4==0)
+            {
+                if(hex<10)
+                    hexDecNum[i] = hex+48;
+                else
+                    hexDecNum[i] = hex+55;
+                mul = 1;
+                hex = 0;
+                chk = 1;
+                i++;
+            }
+            else
+            {
+                mul = mul*2;
+                chk++;
+            }
+            i_input = i_input/10;
+        }
+        if(chk!=1)
+            hexDecNum[i] = hex+48;
+        if(chk==1)
+            i--;
+
+        string s_output = ""; 
+        for(i=i; i>=0; i--)
+        s_output += hexDecNum[i];
+
+        return s_output;
 }
 
 // Base 2 to Base 8 (not completed yet)
