@@ -49,3 +49,22 @@ What is your input type?(enter 0 to exit)
 0
 
 Exit successfully.
+
+
+Test 2: (simple Hex)
+
+What is your input type?(enter 0 to exit)
+1. Dec  2. Bin  3. Hex  4. Oct
+3
+
+What is the input
+1D
+Dec: 29
+Bin: 00011101
+Oct: 035
+
+What is your input type?(enter 0 to exit)
+1. Dec  2. Bin  3. Hex  4. Oct
+0
+
+Exit successfully.
