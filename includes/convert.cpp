@@ -91,7 +91,7 @@ string bin_to_Oct(string input)
     string temp="123";
     int string_length = input.length();
     string fullinput = input;
-    int whole = string_length % 3;
+    int whole = 3-(string_length % 3);
     // checks if binary is divisable by 3 for grouping method
     while(whole != 0)
     {
@@ -104,19 +104,24 @@ string bin_to_Oct(string input)
     string grouped = "";
     int curr_at = 0;
     // should group all binary from the input
-    for(int i=0;i<input.length()+1;i++)
+    for(int i=0;i<fullinput.length()+1;i++)
     {
-        if (count == 2)
+        if (count == 3)
         {
             group[curr_at] = grouped;
             curr_at++;
             count = 0;
             grouped = "";
+            if (i<fullinput.length())
+            {
+                grouped += fullinput.at(i);
+                count++;
+            }
         }
         else
         {
             count++;
-            grouped = grouped + input.at(i);
+            grouped += fullinput.at(i);
         }
     }
     temp = "";
@@ -183,7 +188,42 @@ string hex_to_bin(string input)
     for(int count = 0;count < input.length()+1; count = count+1)
     {
         string item="";
-        int value = arr[count] - '0';
+        int value = 0;
+        switch(toupper(arr[count]))
+        {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':
+                value = arr[count] - '0';
+                break;
+            case 'A':
+                value = 10;
+                break;
+            case 'B':
+                value = 11;
+                break;
+            case 'C':
+                value = 12;
+                break;
+            case 'D':
+                value = 13;
+                break;
+            case 'E':
+                value = 14;
+                break;
+            case 'F':
+                value = 15;
+                break;
+            default:
+                break;
+        }
         if (value >=8)
         {
             value = value -8;
