@@ -255,6 +255,50 @@ string bin_to_Oct(string input)
 string sin_bin_to_dec(string input)
 {
     string temp = "123";
+    //assuming given input is unsigned
+    string changed_to_sin = "";
+    for (int i=0;i<input.length();i++)
+    {
+        if(input.at(i) == '0')
+        {
+            changed_to_sin = changed_to_sin + "1";
+        }
+        else if(input.at(i) == '1')
+        {
+            changed_to_sin = changed_to_sin + "0";
+        }
+    }
+    bool first_zero_found = false;
+    for (int max = changed_to_sin.length()-1;max >-1;max--)
+    {
+        if(changed_to_sin.at(max) == '0' && first_zero_found == false)
+        {
+            first_zero_found = true;
+            changed_to_sin.at(max) = '1';
+        }
+        else if(changed_to_sin.at(max) == '1' && first_zero_found == false)
+        {
+            changed_to_sin.at(max) = '0';
+        }
+    }
+    int decimal=0;
+    for(int get_decimal = 0;get_decimal <changed_to_sin.length(); get_decimal++)
+    {
+        int power = (changed_to_sin.length()-1) - get_decimal;
+        if (changed_to_sin.at(get_decimal) == '1')
+        {
+            decimal = decimal + (1* pow(2,power));
+        }
+        else if(changed_to_sin.at(get_decimal) == '0')
+        {
+            decimal = decimal + (0* pow(2,power));
+        }
+    }
+    if (changed_to_sin.at(0) == '1')
+    {
+        decimal = -decimal;
+    }
+    temp = to_string(decimal);
     return temp;
 }
 
