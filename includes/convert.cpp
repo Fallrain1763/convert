@@ -9,6 +9,12 @@ string dec_to_bin(string input)
 {
     //string to integer 
     int i_input = stoi(input);
+    bool pos_or_negative = false;
+    if (i_input < 0)
+    {
+        pos_or_negative = true;
+        i_input = abs(i_input);
+    }
     // array to store binary number
     int binaryNum[32];
     // counter for binary array
@@ -20,9 +26,12 @@ string dec_to_bin(string input)
         i++; 
     }
     string s_output = ""; 
-    for (int j = i - 1; j >= 0; j--)
-    s_output += to_string(binaryNum[j]); 
-
+    for (int j = i - 1; j >= 0; j--){
+    s_output += to_string(binaryNum[j]);}
+    if(pos_or_negative == true)
+    {
+        s_output = "-" + s_output;
+    }
     return s_output;
 }
 
@@ -70,8 +79,14 @@ string dec_to_hex(string input)
 string dec_to_oct(string input)
 {
     string temp="";
-    int oct = 8;
     int inputted_value = stoi(input);
+    bool pos_or_negative = false;
+    if (inputted_value < 0)
+    {
+        pos_or_negative = true;
+        inputted_value = abs(inputted_value);
+    }
+    int oct = 8;
     int remainders[100]; 
     int used = 0;
     do
@@ -86,6 +101,10 @@ string dec_to_oct(string input)
     {
         temp+= to_string(remainders[used]);
         used--;
+    }
+    if(pos_or_negative == true)
+    {
+        temp = "-" + temp;
     }
     return temp;
 }
