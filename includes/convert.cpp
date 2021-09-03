@@ -90,6 +90,27 @@ string dec_to_oct(string input)
     return temp;
 }
 
+string dec_to_sin_bin(string input) // assume this finished
+//needs to be written
+{
+    string temp = "123";
+    return temp;
+}
+string dec_to_sin_hex(string input)
+{
+    string temp = "123";
+    string sin_binary = dec_to_sin_bin(input);
+    temp = bin_to_hex(sin_binary);
+    return temp;
+}
+string dec_to_sin_oct(string input)
+{
+    string temp = "123";
+    string sin_binary = dec_to_sin_bin(input);
+    temp = bin_to_Oct(sin_binary);
+    return temp;
+}
+
 // Bin convert functions
 //Base 2 to Base 10 
 string bin_to_dec(string input)     
@@ -208,6 +229,13 @@ string bin_to_Oct(string input)
         temp = temp + to_string(item_amount);
         item_amount = 0;
     }
+    return temp;
+}
+
+//needs to be written
+string sin_bin_to_dec(string input)
+{
+    string temp = "123";
     return temp;
 }
 
