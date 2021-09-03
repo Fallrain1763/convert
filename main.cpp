@@ -33,6 +33,9 @@ int main() {
             cout << "Bin: " << dec_to_bin(input) <<endl;
             cout << "Hex: " << dec_to_hex(input) <<endl;
             cout << "Oct: " << dec_to_oct(input) <<endl;
+            cout << "Sin Bin: "<< dec_to_sin_bin(input)<<endl;
+            cout << "Sin Hex: "<< dec_to_sin_hex(input)<<endl;
+            cout << "Sin Oct: "<< dec_to_sin_oct(input)<<endl;
         }
 
         // Bin
@@ -41,6 +44,7 @@ int main() {
             cout << "Dec: " << bin_to_dec(input) <<endl;
             cout << "Hex: " << bin_to_hex(input) <<endl;
             cout << "Oct: " << bin_to_Oct(input) <<endl;
+            cout << "Sin Bin to Dec: "<< sin_bin_to_dec(input)<<endl;
         }
 
         // Hex
