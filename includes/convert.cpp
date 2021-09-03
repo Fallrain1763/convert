@@ -110,10 +110,51 @@ string dec_to_oct(string input)
 }
 
 string dec_to_sin_bin(string input) // assume this finished
-//needs to be written
+//needs to be written //input is negative 
 {
-    string temp = "123";
-    return temp;
+    int i_input = stoi(input);
+    i_input = abs(i_input);
+    string s_input = to_string(i_input);
+
+    //call dec_to_bin 
+    string binary = dec_to_bin(s_input);
+
+    //Convert string to char array 
+    int str_length = binary.length();
+    const int n = str_length + 1;
+    char c_binary[n];
+    int i, carry = 1, fail = 0;
+    for(int i = 0; i < n; i++) 
+    {
+        if(binary[i] == '1')
+        {
+            binary[i] = '0';
+        }
+        else if (binary[i] == '0')
+        {
+            binary[i] = '1';
+        }
+
+    }
+    bool first_zero_found = false;
+    for(int max = n-1; max > -1; max--)
+    {
+        if(binary[max] == '0' && first_zero_found == false)
+        {
+            first_zero_found = true; 
+            binary[max] = '1';
+        }
+        else if(binary[max] == '1' && first_zero_found == false)
+        {
+            binary[max] = '0'; 
+        }
+    }
+    //char array to string
+    string s_output = ""; 
+    for(i=0; i< n; i++)
+    s_output += binary[i];
+
+    return s_output;
 }
 string dec_to_sin_hex(string input)
 {
