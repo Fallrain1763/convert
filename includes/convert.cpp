@@ -40,6 +40,12 @@ string dec_to_bin(string input)
 string dec_to_hex(string input)
 {
     int i_input = stoi(input); 
+    bool pos_or_negative = false;
+    if (i_input < 0)
+    {
+        pos_or_negative = true;
+        i_input = abs(i_input);
+    }
     //Declare char array 
     char hexaDeciNum[100];
     // counter for hexadecimal number array
@@ -72,8 +78,13 @@ string dec_to_hex(string input)
     for (int j = i - 1; j >= 0; j--)
     s_output += (hexaDeciNum[j]);
 
+    if(pos_or_negative == true)
+    {
+        s_output = "-" + s_output;
+    }
     return s_output;
 }
+
 
 // Base 10 to Base 8
 string dec_to_oct(string input)
@@ -109,7 +120,8 @@ string dec_to_oct(string input)
     return temp;
 }
 
-string dec_to_sin_bin(string input) // assume this finished
+
+string dec_to_sign_bin(string input) // assume this finished
 //needs to be written //input is negative 
 {
     int i_input = stoi(input);
@@ -156,20 +168,7 @@ string dec_to_sin_bin(string input) // assume this finished
 
     return s_output;
 }
-string dec_to_sin_hex(string input)
-{
-    string temp = "123";
-    string sin_binary = dec_to_sin_bin(input);
-    temp = bin_to_hex(sin_binary);
-    return temp;
-}
-string dec_to_sin_oct(string input)
-{
-    string temp = "123";
-    string sin_binary = dec_to_sin_bin(input);
-    temp = bin_to_Oct(sin_binary);
-    return temp;
-}
+
 
 // Bin convert functions
 //Base 2 to Base 10 
@@ -188,6 +187,7 @@ string bin_to_dec(string input)
     string s_temp = to_string(temp);
     return s_temp;
 }
+
 
 string bin_to_hex(string input)
 {
@@ -227,6 +227,7 @@ int i_input = stoi(input);
 
         return s_output;
 }
+
 
 // Base 2 to Base 8 (not completed yet)
 string bin_to_Oct(string input)
@@ -292,8 +293,9 @@ string bin_to_Oct(string input)
     return temp;
 }
 
+
 //needs to be written
-string sin_bin_to_dec(string input)
+string sign_bin_to_dec(string input)
 {
     string temp = "123";
     //assuming given input is unsigned
@@ -343,6 +345,7 @@ string sin_bin_to_dec(string input)
     return temp;
 }
 
+
 // Hex convert functions
 //Base 16 to Base 10 
 string hex_to_dec(string input)     
@@ -369,6 +372,7 @@ string hex_to_dec(string input)
     string s_temp = to_string(temp);
     return s_temp;
 }
+
 
 //Base 16 to Base 2
 // looks finished
@@ -465,6 +469,7 @@ string hex_to_bin(string input)
     return temp;
 }
 
+
 //Base 16 to Base 8
 string hex_to_oct(string input)
 {
@@ -475,6 +480,7 @@ string hex_to_oct(string input)
     temp = bin_to_Oct(binary);
     return temp;
 }
+
 
 // Oct convert functions
 //Base 8 to Base 10 
@@ -493,6 +499,7 @@ string oct_to_dec(string input)
     string s_temp = to_string(temp);
     return s_temp;
 }
+
 
 //Base 8 to Base 2
 // looks finished
@@ -545,6 +552,7 @@ string oct_to_bin(string input)
     }
     return temp;
 }
+
 
 //Base 8 to Base 16
 string oct_to_hex(string input)
