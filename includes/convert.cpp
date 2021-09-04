@@ -126,10 +126,23 @@ string dec_to_sign_bin(string input) // assume this finished
 {
     int i_input = stoi(input);
     i_input = abs(i_input);
-    string s_input = to_string(i_input);
-
+    string s_input = to_string(i_input);    
     //call dec_to_bin 
     string binary = dec_to_bin(s_input);
+    if (binary.length() < 8) 
+    {
+        while (binary.length() < 8)
+        {
+            binary = "0" + binary; 
+        }
+
+    } 
+
+    if(stoi(input) > 0) 
+    {
+        return binary; 
+    }
+    //bin 8 digit positve bin number, convert every digit 0 to 1, 1 to 0 and add 1 
 
     //Convert string to char array 
     int str_length = binary.length();
