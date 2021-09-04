@@ -191,7 +191,7 @@ string bin_to_dec(string input)
 
 string bin_to_hex(string input)
 {
-int i_input = stoi(input);
+    int i_input = stoi(input);
     int hex=0, mul=1, chk=1, rem, i=0;
     char hexDecNum[20];
     while(i_input!=0)
@@ -298,11 +298,12 @@ string bin_to_Oct(string input)
 string sign_bin_to_dec(string input)
 {
         if (input.at(0) == '0')
-    {
-        return bin_to_dec(input);
-    }
-    if(input.at(0) == '1')
-    { return to_string(stoi(bin_to_dec(input)) - 256);}
+            return bin_to_dec(input);
+
+        if(input.at(0) == '1')
+            return to_string(stoi(bin_to_dec(input)) - 256);
+
+        return "wrong input";
 }
 
 
@@ -519,8 +520,8 @@ string oct_to_hex(string input)
 {
     string temp="123";
     // Base 8 to Base 10
-    string binary = oct_to_bin(input);
+    string binary = oct_to_dec(input);
     //now that have dec change to hex
-    temp = bin_to_hex(binary);
+    temp = dec_to_hex(binary);
     return temp;
 }
