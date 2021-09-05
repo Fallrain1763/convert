@@ -38,7 +38,7 @@ string dec_to_bin(string input)
 
 //Base 10 to Base 16
 string dec_to_hex(string input)
-{
+{   
     int i_input = stoi(input); 
     bool pos_or_negative = false;
     if (i_input < 0)
@@ -459,7 +459,7 @@ string hex_to_oct(string input)
 // Oct convert functions
 //Base 8 to Base 10 
 string oct_to_dec(string input)     
-{
+{       
     int i_input = stoi(input);
     int temp = 0, i = 0, remainder; 
     while (i_input != 0)
